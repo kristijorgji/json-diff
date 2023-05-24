@@ -112,3 +112,5 @@ dist
 # stryker temp files
 .stryker-tmp
 reports
+
+output/

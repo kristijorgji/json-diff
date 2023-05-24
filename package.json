@@ -11,6 +11,7 @@
     "fix": "eslint --fix --ext js,jsx,ts,tsx {src,__tests__}"
   },
   "dependencies": {
+    "commander": "^10.0.1",
     "dotenv": "^16.0.1"
   },
   "devDependencies": {

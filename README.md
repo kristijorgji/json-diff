@@ -1,34 +1,29 @@
-# ts-boilerplate
+# json-tools
 
-This boilerplate provides you a fully working out of the box project using
-* typescript
-* jest
-* lint and fix tools using my personal best standards from https://www.npmjs.com/package/@kristijorgji/eslint-config-typescript
-* fully debug compatible
+This tool allows you to compare 2 files in json format and do different actions with them.
+
+It is especially useful for translation files.
+
+Example: You have en.json keys filled but some of those keys are missing in de.json. The tool will add the keys to de.json and you can fill the translated value afterwards.
 
 # Getting started
-Use this project as `template` project from github or clone it.
-
 run `yarn install` or `npm install`
 
-run `yarn start` or `npm run start` and you will see the example console.log output.
 
-Now you are ready to modify `src/index.ts` to have the logic you want plus add remove more code as you wish.
+## To fill in the missing keys from source.json to dest.json and sort the keys in dest.json to match the order in source.json run:
+```
+yarn start fill:diff --sourcePath=source.json--subjectPath=dest.json --destPath=result.json
+```
 
-Have fun
+The result for the source, subject in the example above would be:
 
-# Environmental variables
+![](docs/example-diff.png)
 
-This project uses also `dotenv` so you can create `.env` file and specify your variables and will be used by the index file
+You can see the subject keys are 
+* sorted to match the order in source
+* the missing keys from source to subject are added with the source value
+!Note: This command assumes that subject has no extra keys that source has 
 
-# Package.json scripts
-you can run them by `yarn commmand` or `npm run command`
+## License
 
-
-| Command | Description                                                                                                          |
-|---------|----------------------------------------------------------------------------------------------------------------------|
-| test    | run jest tests under __tests__ directory                                                                             |
-| start   | starts the code using ts-node, also can be used under intellJ under debug mode to develop and debug at the same time |
-| compile | compiles the code so you can execute it as plain node if don't want to use start command                             |
-| lint    | lints your code and fails if some issue is found                                                                     |
-| fix     | makes changes to your code to fix the styling issues and whatever other fixable code standard                        |
+json-tools is released under the MIT Licence @kristijorgji. See the bundled LICENSE file for details.
